@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Modern Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="box"> <b class="custom-bold">459</b>
-        <div class="circle" id="circle1">DEL</div>
-        <div class="circle" id="circle2">%</div>
-        <div class="circle" id="circle3">/</div>
-        <div class="circle" id="circle4">8</div>
-        <div class="circle" id="circle5">5</div>
-        <div class="circle" id="circle6">-</div>
-        <div class="circle" id="circle7">x</div>
-        <div class="circle" id="circle8">+</div>
-        <div class="circle" id="circle9">=</div>
-        <div class="circle" id="circle10">6</div>
-        <div class="circle" id="circle11">9</div>
-        <div class="circle" id="circle12">3</div>
-        <div class="circle" id="circle13">.</div>
-        <div class="circle" id="circle14">7</div>
-        <div class="circle" id="circle15">4</div>
-        <div class="circle" id="circle16">1</div>
-        <div class="circle" id="circle17">2</div>
-        <div class="circle" id="circle18">C</div>
-        <div class="oval"><b >0</b></div>
+    <div class="calculator">
+        <div class="display">
+            <div class="previous-operand"></div>
+            <div class="current-operand">0</div>
+        </div>
+        <div class="buttons">
+            <button class="span-two" data-action="clear">AC</button>
+            <button data-action="delete"><i class="fas fa-backspace"></i></button>
+            <button data-action="operation">%</button>
+            <button data-action="operation">/</button>
+            
+            <button data-action="number">7</button>
+            <button data-action="number">8</button>
+            <button data-action="number">9</button>
+            <button data-action="operation">×</button>
+            
+            <button data-action="number">4</button>
+            <button data-action="number">5</button>
+            <button data-action="number">6</button>
+            <button data-action="operation">-</button>
+            
+            <button data-action="number">1</button>
+            <button data-action="number">2</button>
+            <button data-action="number">3</button>
+            <button data-action="operation">+</button>
+            
+            <button class="span-two" data-action="number">0</button>
+            <button data-action="number">.</button>
+            <button class="equals" data-action="calculate">=</button>
+        </div>
     </div>
-    </body>
+    <script src="script.js"></script>
+</body>
 </html>

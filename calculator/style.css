@@ -1,112 +1,171 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+    --bg-color: #1a1a1a;
+    --display-bg: #2d2d2d;
+    --btn-color: #4a4a4a;
+    --btn-hover: #5e5e5e;
+    --operation-btn: #ff9500;
+    --operation-hover: #ffaa33;
+    --equals-btn: #28a745;
+    --equals-hover: #34ce57;
+    --clear-btn: #dc3545;
+    --clear-hover: #e4606d;
+    --text-color: #ffffff;
+    --text-secondary: #a5a5a5;
+}
+
+* {
     margin: 0;
     padding: 0;
-    background-color: gray;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
-.box{
-    margin: 50px 50px 50px 300px;
-    background-color: black;
-    height: 370px;
-    width: 230px;
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.calculator {
+    background: var(--bg-color);
     border-radius: 20px;
-    position: relative;
-    text-align: center;
-    color: white;
-   }
-    .circle{
-        position: absolute;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        top: 100px;
-        left: 5px;
-        line-height: 2;
-        
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+.display {
+    background: var(--display-bg);
+    padding: 20px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    min-height: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.current-operand {
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    background: var(--btn-color);
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button[data-action="operation"] {
+    background: var(--operation-btn);
+    font-size: 1.4rem;
+}
+
+button[data-action="operation"]:hover {
+    background: var(--operation-hover);
+}
+
+.equals {
+    background: var(--equals-btn) !important;
+    font-size: 1.4rem;
+}
+
+.equals:hover {
+    background: var(--equals-hover) !important;
+}
+
+[data-action="clear"] {
+    background: var(--clear-btn);
+}
+
+[data-action="clear"]:hover {
+    background: var(--clear-hover);
+}
+
+[data-action="delete"] {
+    background: var(--btn-color);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .calculator {
+        max-width: 100%;
+        border-radius: 15px;
     }
-    #circle1{
-        background-color: gray;
-        top: 100px;
-        left: 60px;
-        line-height: 2;
-        
+    
+    .buttons {
+        gap: 8px;
+        padding: 15px;
     }
-    #circle2{
-        background-color: gray;
-        top: 100px;
-        left: 120px;
-        line-height: 2;
-        
+    
+    button {
+        padding: 12px 0;
+        font-size: 1.1rem;
     }
-    #circle3{
-        background-color: orange;
-        top: 100px;
-        left: 180px;
-        line-height: 2;
+    
+    .display {
+        padding: 15px;
+        min-height: 100px;
     }
-    #circle4{
-        background-color: gray;
-        top: 150px;
-        left: 60px;
-        line-height: 2;
+    
+    .current-operand {
+        font-size: 2rem;
     }
-    #circle5{
-        background-color: gray;
-        top: 200px;
-        left: 60px;
-        line-height: 2;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1e1e1e;
+        --display-bg: #252526;
+        --btn-color: #333;
+        --btn-hover: #444;
     }
-    #circle6{
-        background-color: orange;
-        top: 200px;
-        left: 180px;
-        line-height: 2;
-    }
-    #circle7{
-        background-color: orange;
-        top: 150px;
-        left: 180px;
-        line-height: 2;
-    }
-    #circle8{
-        background-color: orange;
-        top: 250px;
-        left: 180px;
-        line-height: 2;
-    }
-    #circle9{
-        background-color: orange;
-        top: 300px;
-        left: 180px;
-        line-height: 2;
-    }
-    #circle10{
-        background-color: gray;
-        top: 200px;
-        left: 120px;
-        line-height: 2;
-    }
-    #circle11{
-        background-color: gray;
-        top: 150px;
-        left: 120px;
-        line-height: 2;
-    }
-    #circle12{
-        background-color: gray;
-        top: 250px;
-        left: 120px;
-        line-height: 2;
-    }
-    #circle13{
-        background-color: gray;
-        top: 300px;
-        left: 120px;
-        line-height: 2;
-    }
-    #circle14{
-        background-color: gray;
-        top: 150px;
-        left: 5px;
+}
         line-height: 2;
     }
     #circle15{
